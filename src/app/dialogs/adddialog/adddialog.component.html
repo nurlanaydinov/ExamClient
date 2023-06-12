@@ -1,0 +1,27 @@
+<h4>{{dialogTitle}}</h4>
+<input type="hidden" [value]="id" #txtId>
+<mat-form-field class="exam-create">
+    <mat-label> Lesson Code</mat-label>
+    <input matInput type="text"  [value]="lessonCode" #txtlsnCode>
+</mat-form-field>
+<mat-form-field class="exam-create">
+    <mat-label> Student Number</mat-label>
+    <input matInput type="number" min="0" [value]="studentNumber" #txtStNmbr>
+</mat-form-field>
+<mat-form-field>
+    <input matInput [value]="dt" [matDatepicker]="picker1" placeholder="From Date" [formControl]="date1"
+        (dateChange)="click($event)">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+</mat-form-field>
+<mat-form-field class="exam-create">
+    <mat-label>Rating</mat-label>
+    <input matInput type="number" min="0" [value]="rating" #txtRating>
+</mat-form-field>
+
+<button mat-raised-button class="btn-create" color="primary"
+    (click)="crud(txtlsnCode, txtStNmbr, txtRating)">{{crudBtn}}</button>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close id="btnClose">Kapat</button>
+</mat-dialog-actions>
